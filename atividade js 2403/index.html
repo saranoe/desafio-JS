@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1> programa Fuso horario</h1>
+    hora no brasil(hh:mm)<input type="text" id="hora no brasil">
+    <script>
+
+        
+        let horaBrasil = ("Digite a hora atual no Brasil (formato HH:MM):");
+
+// Verifica se o usuário preencheu o campo
+if (horaBrasil !== null && horaBrasil !== "") {
+  // Separa a hora e o minuto digitados pelo usuário
+  let partesHoraBrasil = horaBrasil.split(":");
+  
+  // Verifica se o formato da hora é válido
+  if (partesHoraBrasil.length === 2 && !isNaN(partesHoraBrasil[0]) && !isNaN(partesHoraBrasil[1])) {
+    // Converte a hora atual no Brasil para UTC
+    let dataBrasil = new Date();
+    dataBrasil.setHours(partesHoraBrasil[0]);
+    dataBrasil.setMinutes(partesHoraBrasil[1]);
+    let horaUtcBrasil = dataBrasil.getTime() - (dataBrasil.getTimezoneOffset() * 60000);
+
+    // Converte a hora UTC do Brasil para a hora UTC da França
+    let horaUtcFranca = horaUtcBrasil + (5 * 60 * 60 * 1000);
+    let dataFranca = new Date(horaUtcFranca);
+
+    // Exibe a hora atual na França
+    alert("A hora atual na França é: " + dataFranca.getHours() + ":" + dataFranca.getMinutes());
+  } else {
+    alert("Por favor, digite a hora no formato HH:MM");
+  }
+} else {
+  alert("Por favor, preencha a hora atual no Brasil");
+}
+
+    </script>
+    
+</body>
+</html>

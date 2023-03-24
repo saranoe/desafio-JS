@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 01</title>
+</head>
+<body>
+  <p>Nome Aluno(a): </p> <input type="text" id="nomeAluno">
+  <p>1º Nota:</p> <input type="text" id="notaUm">
+  <p>2º Nota:</p> <input type="text" id="notaDois">
+  <br>
+  <br>
+  <button id="mediaAluno">Exibir média do aluno</button>
+  <button id="mediaTurma">Exibir média da turma</button>
+    
+  <script>
+
+    let notas = []
+    const nomeAluno = document.getElementById('nomeAluno');
+    const notaUm = document.getElementById('notaUm');
+    const notaDois = document.getElementById('notaDois');
+    const mediaAluno = document.getElementById('mediaAluno');
+    const mediaTurma = document.getElementById('mediaTurma');
+
+    let media = (notaUm + notaDois) / 2
+
+
+    mediaAluno.addEventListener('click', ()=>{
+        let notas = media.value
+        if(media => 7){
+            alert('Parabéns você foi aprovado!')
+        }else{
+            if( media  => 7 < 3){
+                alert('Atenção. você está em recuperação!')
+            }
+        }
+        
+    })
+
+  </script>
+</body>
+</html>
